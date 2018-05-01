@@ -1,0 +1,495 @@
+{
+    "payload": [
+        {
+            "address": "1050 N Point St Apt 1105 San Francisco, CA 94109",
+            "analysis": {
+                "ambiance": {
+                    "meh": [],
+                    "neg": [],
+                    "pos": []
+                },
+                "clean": {
+                    "meh": [],
+                    "neg": [],
+                    "pos": []
+                },
+                "price": {
+                    "meh": [],
+                    "neg": [],
+                    "pos": []
+                },
+                "restaurant": {
+                    "meh": [],
+                    "neg": [],
+                    "pos": []
+                },
+                "service": {
+                    "meh": [],
+                    "neg": [],
+                    "pos": []
+                },
+                "taste": {
+                    "meh": [],
+                    "neg": [],
+                    "pos": [
+                        " Sit outdoors in the shade, smell the roses, listen to live jazz, and let good life make you smile too"
+                    ]
+                },
+                "top_mention": [],
+                "unique": [
+                    "yum sit outdoors",
+                    "smile sweet",
+                    "rose listen",
+                    "life make",
+                    "guy smile",
+                    "listen live",
+                    "let good life"
+                ],
+                "wait": {
+                    "meh": [],
+                    "neg": [],
+                    "pos": []
+                }
+            },
+            "categories": [
+                "creperies"
+            ],
+            "city": "San Francisco",
+            "coords": {
+                "latitude": 37.80542,
+                "longitude": -122.42481
+            },
+            "display_phone": "(415) 440-8030",
+            "id": "crepes-ala-carte-san-francisco",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/i42xsDd5m_Y4nWknZvO4XA/o.jpg",
+            "is_closed": false,
+            "is_lux": false,
+            "name": "Crepes Ala Carte",
+            "neighborhood": "Russian Hill",
+            "price": null,
+            "rating": 3.5,
+            "review_count": 2,
+            "state": "CA",
+            "zip_code": "94109"
+        },
+        {
+            "address": "993 North Point St San Francisco, CA 94109",
+            "analysis": {
+                "ambiance": {
+                    "meh": [
+                        " The decor in the place could use some upgrading on the walls, maybe add some color? Nothing stood out to me"
+                    ],
+                    "neg": [
+                        "The service was good though and had great music but I'm never coming back"
+                    ],
+                    "pos": [
+                        " The food is delicious, the atmosphere is great, and the staff is welcoming",
+                        " I had Lomo Saltado and it was amazing, the place is new and it needs a little decor but I feel that this please will be famous for the quality and flavor of their dishes"
+                    ]
+                },
+                "clean": {
+                    "meh": [],
+                    "neg": [],
+                    "pos": []
+                },
+                "price": {
+                    "meh": [
+                        " they're kver priced considering how small they are for $5/$6",
+                        " looking at the prices they range from $16-$25",
+                        " Spent $52 on a veggie paella, a whatever tasting ceviche, a tiny empanada, a small papa rellena and an Inca cola"
+                    ],
+                    "neg": [
+                        " The 5 shrimps \"al ajillo\" made with canned chopped garlic, the ceviche made out of one kind of fish (cheap, no other option were to choose from) covered in lemon so the \"leche de tigre\" wasn't balanced at all",
+                        " All of it for around 45 USD, really? In front of Ghirardelli Square? Were you actually expect some level of cook quality",
+                        " When I asked what fish it was made with they told me (basa; cheap fish) and had no other option available"
+                    ],
+                    "pos": [
+                        " Great prices, right next to Ghirardelli square",
+                        " Huge portions are great for sharing",
+                        " The lomo saltado menu is a bomb, the price is reaaonable and the service is superb"
+                    ]
+                },
+                "restaurant": {
+                    "meh": [
+                        " So We walked to the Ghirardelli store and grabbed chocolates, haha no biggie",
+                        " The decor in the place could use some upgrading on the walls, maybe add some color? Nothing stood out to me",
+                        "My fiance and I wanted to try a new place and decided we should grab some Peruvian food"
+                    ],
+                    "neg": [
+                        " Excited and all, we decided to come to San Francisco to give this place a try and sadly it did not meet the expectations at all",
+                        "VERY DISAPPOINTED OF THIS PLACE",
+                        " the whole experience was so disappointing"
+                    ],
+                    "pos": [
+                        " I liked the service, we are quite late almost at the closing time and there was only one server taking care of the place but we still were made too feel welcomed",
+                        " Support this place",
+                        " What makes the restaurant really stand out though is the incredible service"
+                    ]
+                },
+                "service": {
+                    "meh": [
+                        " The empanada came out cold but our server happily got my fiance a new one which came back perfectly hot",
+                        "Our server was friendly from start to finish"
+                    ],
+                    "neg": [
+                        "1 star thanks to the service",
+                        "The service was good though and had great music but I'm never coming back"
+                    ],
+                    "pos": [
+                        " I liked the service, we are quite late almost at the closing time and there was only one server taking care of the place but we still were made too feel welcomed",
+                        " The service is great, very friendly and helpful",
+                        "Good Food, excellent service, been coming to this restaurant since they opened, food is consistently good every single time"
+                    ]
+                },
+                "taste": {
+                    "meh": [
+                        " I got the mixed fish one but it looked like it only had one type of fish? Taste was just okay",
+                        " There was supposed to be a hint of spicy but I tasted nothing of that sort",
+                        "My fiance and I wanted to try a new place and decided we should grab some Peruvian food"
+                    ],
+                    "neg": [
+                        " If you know about Peruvian food you'll be highly disappointed",
+                        " I ordered ceviche which is my absolute favorite Peruvian dish",
+                        " Peruvian food is supposed to be intense on flavor, satisfying and fulfilling, but this wasn't the case"
+                    ],
+                    "pos": [
+                        " The arroz con marisco was also delicious as well as the cebiche",
+                        " By far the best yuca that I've tasted in the U",
+                        "Delicious lomo, platanos, and sangria"
+                    ]
+                },
+                "top_mention": [
+                    "ceviche",
+                    "lomo",
+                    "fry",
+                    "saltado",
+                    "empanada"
+                ],
+                "unique": [
+                    "mariscos",
+                    "nicolas",
+                    "fistfull",
+                    "lomo saltado",
+                    "papa rellena",
+                    "kver",
+                    "ghirardelli square"
+                ],
+                "wait": {
+                    "meh": [
+                        " We were the only table actually eating (there was one there but they had been there since they closed and then reopened at 5 and we not eating) so I'm not sure why the cook rushed that empanada but I appreciated them getting her a new one",
+                        "We got there around 4:40 and were told they were closed, despite their open sign facing the window but the guy said they'd open up in 15-20 minutes"
+                    ],
+                    "neg": [],
+                    "pos": [
+                        " Wait staff was great too",
+                        " The wait staff is always friendly and can help guide you through menu choices if you are new to the cuisine (and if that is the case go there RIGHT NOW as Peruvian food is amazing)",
+                        "Fantastic food, can't wait to come back"
+                    ]
+                }
+            },
+            "categories": [
+                "peruvian"
+            ],
+            "city": "San Francisco",
+            "coords": {
+                "latitude": 37.805187,
+                "longitude": -122.4234402
+            },
+            "display_phone": "(415) 368-9482",
+            "id": "passion-peruana-san-francisco-3",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/psb03tW29xMXKAq6A-hV4w/o.jpg",
+            "is_closed": false,
+            "is_lux": false,
+            "name": "Passion Peruana",
+            "neighborhood": "Russian Hill",
+            "price": "$$",
+            "rating": 4.5,
+            "review_count": 34,
+            "state": "CA",
+            "zip_code": "94109"
+        },
+        {
+            "address": "901 N Point St San Francisco, CA 94109",
+            "analysis": {
+                "ambiance": {
+                    "meh": [],
+                    "neg": [
+                        " The store iteself is decent in terms of food/offerings, but barely pulls off the second star due to bad vibes from the owner"
+                    ],
+                    "pos": [
+                        " and i don't want to talk to anybody so i don't mind the quiet employees",
+                        " Don't let the small, liquor store vibe fool ya",
+                        "Ambience:Tiny deli facing north point street"
+                    ]
+                },
+                "clean": {
+                    "meh": [],
+                    "neg": [],
+                    "pos": [
+                        " The place was clean, their health inspection score was in the 90's",
+                        " Their sandwiches surprisingly stays neat and tastes so good that I can't control myself: I eat the entire thing"
+                    ]
+                },
+                "price": {
+                    "meh": [
+                        " Great value and location but we won't be back for food next year"
+                    ],
+                    "neg": [],
+                    "pos": [
+                        "Staff is always super friendly and sandwiches here are huge so you really get a bang for your buck",
+                        " The best sandwiches in the zip code, fantastic prices on Alcohol and the Jimmy/Archie combo of customer service is unbeatable",
+                        " Delicious sandwiches and a great value"
+                    ]
+                },
+                "restaurant": {
+                    "meh": [
+                        " Great value and location but we won't be back for food next year",
+                        "Maybe since I'm not a local this place didn't wow me",
+                        "I love this place"
+                    ],
+                    "neg": [
+                        "Generally speaking, the guy who owns this place needs to beer bong some Prozac",
+                        " Without customers you have no business",
+                        " The store iteself is decent in terms of food/offerings, but barely pulls off the second star due to bad vibes from the owner"
+                    ],
+                    "pos": [
+                        "Great sandwich place",
+                        " It looks like a regular liquor store but they are definitely more than meets the eye",
+                        "This place is amazing"
+                    ]
+                },
+                "service": {
+                    "meh": [],
+                    "neg": [
+                        " I get it: you don't like to smile, talk, and seem to be miserable, but give customers some common social courtesy",
+                        " Without customers you have no business",
+                        " The store iteself is decent in terms of food/offerings, but barely pulls off the second star due to bad vibes from the owner"
+                    ],
+                    "pos": [
+                        "Staff is always super friendly and sandwiches here are huge so you really get a bang for your buck",
+                        " The owner is really rice and helpful",
+                        " The best sandwiches in the zip code, fantastic prices on Alcohol and the Jimmy/Archie combo of customer service is unbeatable"
+                    ]
+                },
+                "taste": {
+                    "meh": [
+                        " Great value and location but we won't be back for food next year",
+                        " The flavor permeated the whole sando",
+                        " It wasn't listed on the menu or we would have had them removed"
+                    ],
+                    "neg": [
+                        " The store iteself is decent in terms of food/offerings, but barely pulls off the second star due to bad vibes from the owner"
+                    ],
+                    "pos": [
+                        "Tasty, Great sandwich roll, I really liked it",
+                        "I've had almost every sandwich on the menu and they are all delicious in their own way",
+                        " Delicious sandwiches and a great value"
+                    ]
+                },
+                "top_mention": [
+                    "sandwich",
+                    "corner",
+                    "jay",
+                    "deli",
+                    "bread"
+                ],
+                "unique": [
+                    "sandwich nazi",
+                    "hot pastrami",
+                    "bong prozac",
+                    "street ghirardelli",
+                    "beer bong",
+                    "ghirardelli square",
+                    "sando great"
+                ],
+                "wait": {
+                    "meh": [
+                        "We came back for fleet week this year and were happy to see our sandwiches ready and waiting"
+                    ],
+                    "neg": [],
+                    "pos": [
+                        " It's a little treasure amidst the crowded tourist spots around this neighborhood",
+                        " Great stop just outside the square and no busy tourist feel",
+                        "It's nice after a busy morning walking SF to grab a sandwich and eat it in the park by the wharf"
+                    ]
+                }
+            },
+            "categories": [
+                "grocery",
+                "delis",
+                "beer_and_wine"
+            ],
+            "city": "San Francisco",
+            "coords": {
+                "latitude": 37.8053092956543,
+                "longitude": -122.422142028809
+            },
+            "display_phone": "(415) 673-9708",
+            "id": "michaelis-food-store-san-francisco",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/4o37O7Nq66pziNrxj3GK5A/o.jpg",
+            "is_closed": false,
+            "is_lux": false,
+            "name": "Michaelis Food Store",
+            "neighborhood": "Russian Hill",
+            "price": "$",
+            "rating": 4.5,
+            "review_count": 83,
+            "state": "CA",
+            "zip_code": "94109"
+        },
+        {
+            "address": "851 Beach St San Francisco, CA 94109",
+            "analysis": {
+                "ambiance": {
+                    "meh": [
+                        " We really enjoyed the modern rustic interior, and our waiter was attentive and friendly",
+                        " Great view of the Golden gate Bridge and Sausalito you can see Alcatraz seems like you could touch it",
+                        " Sat at the beautiful wooden bar, had a couple beers and talked about the weather and baseball"
+                    ],
+                    "neg": [
+                        " Staff were friendly and helpful and atmosphere was nice",
+                        "This is a 2 Star place with a 5 star view of the bay, incredible location",
+                        " They changed all the tvs to the SF Niners game"
+                    ],
+                    "pos": [
+                        " The atmosphere was great; inviting and warm",
+                        " Open late, AWESOME view of the bay/Alcatraz, decent prices, full bar and good eats?",
+                        " Very affordable, comfortable and delicious"
+                    ]
+                },
+                "clean": {
+                    "meh": [],
+                    "neg": [],
+                    "pos": [
+                        " Would have given 5 stars if they clean",
+                        " Clean, hip, casual vibe with good service",
+                        " I'm giving 4 stars because of the service, the location, the quality, and cleanliness"
+                    ]
+                },
+                "price": {
+                    "meh": [
+                        " The waiter took $5 off our bill",
+                        " At $11 a cocktail and ~$7 a beer, the pricing wasn't too bad given the location",
+                        " it most defininately was NOT worth $30"
+                    ],
+                    "neg": [
+                        " But then again, it's Fisherman's Wharf- the prices are to be expected",
+                        " Not a good value for the price and I doubt I would go back",
+                        " McDonald's can split checks more than 2 ways and doesn't get an automatic $165 tip"
+                    ],
+                    "pos": [
+                        " They have very generous portions for both meals",
+                        " I thought it was a little pricey for simple mac n' cheese",
+                        " Open late, AWESOME view of the bay/Alcatraz, decent prices, full bar and good eats?"
+                    ]
+                },
+                "restaurant": {
+                    "meh": [
+                        "Our server was excellent - - that is something I take for granted in LA, where all the wait staff are aspiring actors, but I do notice it is more hit or miss in other places",
+                        " Its along the water front kind of underneath the main square area",
+                        " However, I definitely would try to plan your happy hour in a different area, rather than coming to this joint"
+                    ],
+                    "neg": [
+                        " The restaurant appeared nice and is in a lovely location across from the water",
+                        " I came in during a lunch break from work, and found this place relatively slow, but instead of being immediately seated, I was ignored by the greeter",
+                        " Place was maybe 85% seated, but it took almost 40 minutes from our server's entry of food on the computer until we got our first plate -- and even then it took another 15 minutes to everyone plated for our party of 6 for lunch"
+                    ],
+                    "pos": [
+                        "This has been one of the best places to visit in San Francisco",
+                        " Will definitely be coming back when we are in the area",
+                        " This place is straight-forward and laid back and I definitely would recommend it to anyone"
+                    ]
+                },
+                "service": {
+                    "meh": [
+                        " Our waiter Javier was sweet ans attentive so this in no way has anything to do with the service",
+                        "Friendly staff and fun ambiance",
+                        "Service was good "
+                    ],
+                    "neg": [
+                        "My first dinner here was very mediocre with poor service but I thought I would give them a second chance",
+                        " I came in during a lunch break from work, and found this place relatively slow, but instead of being immediately seated, I was ignored by the greeter",
+                        " Will not return solely because of her (the manager) after coming here for years- and definitely will not bring my company again"
+                    ],
+                    "pos": [
+                        " but the food more than made up for it and the service improved quickly as well",
+                        " Food was good, service not so great, food wins, they get the 4",
+                        " The staff and owner are so personable"
+                    ]
+                },
+                "taste": {
+                    "meh": [
+                        " the brisket AND ribs were dry",
+                        " The food waz pretty bad though",
+                        " soooo imagine the letdown when i discovered the food is just ehhhh"
+                    ],
+                    "neg": [
+                        " We've eaten tons of meals out & I'm in hospitality in the wine biz now",
+                        "We got forgotten about and our food took forever",
+                        " Unfortunately, the chicken was oily, flavorless and dry"
+                    ],
+                    "pos": [
+                        " Very affordable, comfortable and delicious",
+                        " They did fantastic, and we were very happy with the food and the service",
+                        " The highlights of the experience was the perfect lighting, the rapid service, and definitely the best jalapeño poppers I've ever tasted"
+                    ]
+                },
+                "top_mention": [
+                    "mac",
+                    "burger",
+                    "brisket",
+                    "bbq",
+                    "side"
+                ],
+                "unique": [
+                    "honey butter",
+                    "brisket",
+                    "jalapeo popper",
+                    "macdonald",
+                    "hot link brisket",
+                    "brisket hot link",
+                    "pull pork sandwich"
+                ],
+                "wait": {
+                    "meh": [
+                        "Our server was excellent - - that is something I take for granted in LA, where all the wait staff are aspiring actors, but I do notice it is more hit or miss in other places",
+                        " However, I definitely would try to plan your happy hour in a different area, rather than coming to this joint",
+                        " After waiting an hour and 15 minutes for our food to come, we found that the ribs we ordered were dry and burned"
+                    ],
+                    "neg": [
+                        " Can you say gross? Food took 50 minutes to get to us",
+                        " Place was maybe 85% seated, but it took almost 40 minutes from our server's entry of food on the computer until we got our first plate -- and even then it took another 15 minutes to everyone plated for our party of 6 for lunch",
+                        " We ordered 2 alcoholic drinks and our food at the same time since we didn't know how long it was going to be until they came back"
+                    ],
+                    "pos": [
+                        " Not only did they provide the catering requested (breakfast, lunch, and reception hors d'oeuvres), but he was ready and available to help us with last-minute items like ice, hot water, and labor",
+                        " The brisket was fantastic not smoked till dry",
+                        " Nothing in the wharf was suiting or it had a long wait time"
+                    ]
+                }
+            },
+            "categories": [
+                "bbq",
+                "pubs",
+                "tradamerican"
+            ],
+            "city": "San Francisco",
+            "coords": {
+                "latitude": 37.8062606474218,
+                "longitude": -122.422769431878
+            },
+            "display_phone": "(415) 351-0500",
+            "id": "the-pub-at-ghirardelli-square-san-francisco-2",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/WgueVtWxbsLppCePZgjWHw/o.jpg",
+            "is_closed": false,
+            "is_lux": false,
+            "name": "The Pub at Ghirardelli Square",
+            "neighborhood": "Russian Hill",
+            "price": "$$",
+            "rating": 3.5,
+            "review_count": 770,
+            "state": "CA",
+            "zip_code": "94109"
+        }
+    ]
+}
