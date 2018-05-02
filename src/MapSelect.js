@@ -34,7 +34,8 @@ export default class screens extends Component {
         isLoading: true,
       }
     }
-    this.getResults('mockResults')
+    this.getResults(this.props.neighborhood)
+    console.log(this.props.neighborhood);
   }
   //set markers from api
   getResults(neighborhood) {
@@ -81,7 +82,7 @@ export default class screens extends Component {
             ...coords,
             latitudeDelta: this.state.region.latitudeDelta * .15,
             longitudeDelta: this.state.region.longitudeDelta * .15
-          }, 350);
+          }, 450);
         }
       }, 10);
     });
@@ -97,9 +98,9 @@ export default class screens extends Component {
   render() {
     const interpolations = this.state.markers.map((marker, index) => {
       const inputRange = [
-        (index - 1) * CARD_WIDTH,
-        index * CARD_WIDTH,
-        ((index + 1) * CARD_WIDTH)
+        (index - 1) * (CARD_WIDTH + 110),
+        index * (CARD_WIDTH - 15),
+        ((index + 1) * (CARD_WIDTH + 15))
       ];
       const scale = this.animation.interpolate({
         inputRange,
@@ -211,13 +212,15 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   textContent: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#312F2F'
   },
   cardtitle: {
     padding: 10,
     fontSize: 12,
     marginTop: 5,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    color: 'white'
   },
   cardDescription: {
     fontSize: 12,

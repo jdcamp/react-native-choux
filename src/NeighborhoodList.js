@@ -1,14 +1,13 @@
 import React, {Component} from "react";
 import { StyleSheet, Text, View, Button, FlatList, Image, SafeAreaView, Alert, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
-export default class NeighborhoodList extends Component {
+
+class NeighborhoodList extends Component {
   constructor(props){
     super(props);
     this.state = {isLoading: true};
     // this._onPressItem = this._onPressItem.bind(this)
-  }
-  _onPressItem = (videoObj) => {
-    Alert.alert(videoObj.name, videoObj.deck)
   }
 
   componentDidMount(){
@@ -40,7 +39,11 @@ export default class NeighborhoodList extends Component {
           data={this.state.dataSource}
           renderItem={({item}) =>
             <View style={styles.card}>
-              <TouchableOpacity onPress={() => this._onPressItem(item)}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('MapSelect', {
+                  neighborhood: item,
+                })}
+                >
                 <Text style={styles.title}>{item}</Text>
               </TouchableOpacity>
             </View>
@@ -51,6 +54,7 @@ export default class NeighborhoodList extends Component {
     )
   }
 }
+export default withNavigation(NeighborhoodList);
 
 const styles = StyleSheet.create({
   container: {
