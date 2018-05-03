@@ -82,7 +82,7 @@ export default class screens extends Component {
             ...coords,
             latitudeDelta: this.state.region.latitudeDelta * .15,
             longitudeDelta: this.state.region.longitudeDelta * .15
-          }, 450);
+          }, 350);
         }
       }, 10);
     });
@@ -98,9 +98,9 @@ export default class screens extends Component {
   render() {
     const interpolations = this.state.markers.map((marker, index) => {
       const inputRange = [
-        (index - 1) * (CARD_WIDTH + 110),
-        index * (CARD_WIDTH - 15),
-        ((index + 1) * (CARD_WIDTH + 15))
+        (index - 1) * CARD_WIDTH,
+        index * CARD_WIDTH,
+        ((index + 1) * CARD_WIDTH)
       ];
       const scale = this.animation.interpolate({
         inputRange,
@@ -160,10 +160,8 @@ export default class screens extends Component {
                   uri: marker.image_url
                 }} style={styles.cardImage} resizeMode="cover"/>
                 <View style={styles.textContent}>
-                  <Text numberOfLines={1} style={styles.cardtitle}>{marker.name}</Text>
-                  <Text numberOfLines={1} style={styles.cardDescription}>
-                    {marker.description}
-                  </Text>
+                  <Text style={styles.cardtitle}>{marker.name}</Text>
+                  <Text style={styles.cardtitle}>{marker.rating}</Text>
                 </View>
               </View>
             </TouchableOpacity>))
@@ -213,6 +211,8 @@ const styles = StyleSheet.create({
   },
   textContent: {
     flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     backgroundColor: '#312F2F'
   },
   cardtitle: {
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
   },
   cardDescription: {
     fontSize: 12,
-    color: "#444"
+    color: "white"
   },
   markerWrap: {
     alignItems: "center",
