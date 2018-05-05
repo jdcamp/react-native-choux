@@ -7,6 +7,7 @@ import {
   FlatList,
   ImageBackground,
   SafeAreaView,
+  ActivityIndicator,
   Alert,
   TouchableOpacity
 } from 'react-native';
@@ -22,6 +23,7 @@ class NeighborhoodList extends Component {
   }
 
   componentDidMount() {
+    //Get NeighborhoodList from heroku api
     return fetch('https://ancient-eyrie-84751.herokuapp.com/neighborhoods').then((response) => response.json()).then((responseJson) => {
       this.setState({
         dataSource: responseJson.neighborhoods,
@@ -31,24 +33,30 @@ class NeighborhoodList extends Component {
       console.error(error);
     })
   }
-
-  render() {
+//awits fetch function to return json and set the loading  frpm true to false
+    render() {
     if (this.state.isLoading) {
-      return (<SafeAreaView>
-        <Text>Loading</Text>
+      //loading screen
+      return (<SafeAreaView style={styles.loading}>
+        <ActivityIndicator size="large" color="#0000ff" />
       </SafeAreaView>);
     }
+    //list view once fetch function completes
+    // TODO: add slug to neighborhood api to use instead of name
     return (<SafeAreaView style={styles.listContainer}>
-      <FlatList data={this.state.dataSource} renderItem={({item}) => <View style={styles.card}>
+      <FlatList data={this.state.dataSource} renderItem={({item}) =>
+        <View style={styles.card}>
+        //onpress uses name to fetch from api
           <TouchableOpacity onPress={() => this.props.navigation.navigate('MapSelect', {neighborhood: item.name})}>
             <View style={styles.imageTitle}>
               <ImageBackground style={styles.image} source={{
                   uri: item.image_url
                 }}>
+                <View style={styles.opacityFilter}>
                 <Text style={styles.title}>{item.name}</Text>
+              </View>
               </ImageBackground>
             </View>
-            <Text style={styles.deck}>{item.deck}</Text>
           </TouchableOpacity>
         </View>}/>
     </SafeAreaView>)
@@ -67,7 +75,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 10,
     overflow: 'hidden',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FFFFFF',
+    flex: 1,
   },
   listContainer: {
     flex: 1,
@@ -75,8 +84,10 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 14,
-    padding: 12
+    flex: 2,
+    fontSize: 22,
+    padding: 12,
+    fontFamily: 'KaushanScript-Regular',
   },
   deck: {
     color: '#001011',
@@ -85,16 +96,26 @@ const styles = StyleSheet.create({
     flex: 3
   },
   image: {
-    flexGrow: 1,
+    flex: 2,
     height: null,
     width: null,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,.9)',
   },
   imageTitle: {
     flex: 1,
+    height: 125,
     alignItems: 'stretch',
+    justifyContent: 'center',
+    backgroundColor: 'black',
+  },
+  loading: {
+    flex: 1,
     justifyContent: 'center'
+  },
+  opacityFilter: {
+    flex: 1,
+    alignItems: 'stretch',
+    // backgroundColor: 'rgba(204, 204, 204, 0.9)'
   }
 });

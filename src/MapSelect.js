@@ -11,16 +11,15 @@ import {
   TouchableOpacity,
   Modal
 } from "react-native";
-
 import MapView from "react-native-maps";
-
+import {withNavigation} from 'react-navigation';
 
 const {width, height} = Dimensions.get("window");
 
 const CARD_HEIGHT = height / 4;
 const CARD_WIDTH = width - 50;
 
-export default class screens extends Component {
+class screens extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -93,8 +92,11 @@ export default class screens extends Component {
     </View>);
   }
   _showModal = () => {
-    console.log('button pressed');
+    console.log("modal fired");
+    console.log(marker);
+    this.props.navigation.navigate('Modal', {restaurant: marker})
   }
+
   render() {
     const interpolations = this.state.markers.map((marker, index) => {
       const inputRange = [
@@ -154,7 +156,8 @@ export default class screens extends Component {
             }
           ], {useNativeDriver: true})} style={styles.scrollView} contentContainerStyle={styles.endPadding}>
           {
-            this.state.markers.map((marker, index) => (<TouchableOpacity activeOpacity={.82} onPress={this._showModal}>
+            this.state.markers.map((marker, index) => (
+            <TouchableOpacity activeOpacity={.82} onPress={this._showModal}>
             <View style={styles.card} key={index}>
               <Image source={{
                   uri: marker.image_url
@@ -172,6 +175,8 @@ export default class screens extends Component {
     }
   }
 }
+
+export default withNavigation(screens);
 
 const styles = StyleSheet.create({
   container: {
