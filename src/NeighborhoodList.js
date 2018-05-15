@@ -37,16 +37,19 @@ class NeighborhoodList extends Component {
     render() {
     if (this.state.isLoading) {
       //loading screen
-      return (<SafeAreaView style={styles.loading}>
+      return (
+        <SafeAreaView style={styles.loading}>
         <ActivityIndicator size="large" color="#0000ff" />
       </SafeAreaView>);
     }
     //list view once fetch function completes
     // TODO: add slug to neighborhood api to use instead of name
-    return (<SafeAreaView style={styles.listContainer}>
-      <FlatList data={this.state.dataSource} renderItem={({item}) =>
+    return (
+      <SafeAreaView style={styles.listContainer}>
+      <FlatList data={this.state.dataSource}
+        keyExtractor={(item, index) => item.name}
+        renderItem={({item}) =>
         <View style={styles.card}>
-        //onpress uses name to fetch from api
           <TouchableOpacity onPress={() => this.props.navigation.navigate('MapSelect', {neighborhood: item.name})}>
             <View style={styles.imageTitle}>
               <ImageBackground style={styles.image} source={{
@@ -83,15 +86,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0F7F4'
   },
   title: {
-    color: '#fff',
+    color: 'white',
     flex: 2,
-    fontSize: 22,
+    fontSize: 30,
     padding: 12,
     fontFamily: 'KaushanScript-Regular',
   },
   deck: {
     color: '#001011',
     fontSize: 14,
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 12,
     flex: 3
   },
@@ -104,7 +109,7 @@ const styles = StyleSheet.create({
   },
   imageTitle: {
     flex: 1,
-    height: 125,
+    height: 155,
     alignItems: 'stretch',
     justifyContent: 'center',
     backgroundColor: 'black',
@@ -114,8 +119,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   opacityFilter: {
-    flex: 1,
-    alignItems: 'stretch',
-    // backgroundColor: 'rgba(204, 204, 204, 0.9)'
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: 'rgba(150,150,150,0.2)',
   }
 });

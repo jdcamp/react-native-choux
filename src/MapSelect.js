@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
 import {
   AppRegistry,
   StyleSheet,
@@ -11,13 +12,13 @@ import {
   TouchableOpacity,
   Modal
 } from "react-native";
-import MapView from "react-native-maps";
+import MapView, {Marker} from "react-native-maps";
 import {withNavigation} from 'react-navigation';
 
 const {width, height} = Dimensions.get("window");
 
 const CARD_HEIGHT = height / 4;
-const CARD_WIDTH = width - 50;
+const CARD_WIDTH = width - 75;
 
 class screens extends Component {
   constructor(props) {
@@ -33,20 +34,21 @@ class screens extends Component {
         isLoading: true,
       }
     }
+    this._showModal = this._showModal.bind(this)
+    this._renderItem = this._renderItem.bind(this)
     this.getResults(this.props.neighborhood)
-    console.log(this.props.neighborhood);
   }
   //set markers from api
   getResults(neighborhood) {
-    return fetch(`https://ancient-eyrie-84751.herokuapp.com/${neighborhood}`).then((response) => response.json()).then((responseJson) => {
+    return fetch(`http://www.chouxchoux.io/${neighborhood}`).then((response) => response.json()).then((responseJson) => {
       this.setState({
         markers: responseJson.payload,
       }, function() {
         //snap to first place after fetch request
         this.map.animateToRegion({
           ...responseJson.payload[0].coords,
-          latitudeDelta: this.state.region.latitudeDelta * .15,
-          longitudeDelta: this.state.region.longitudeDelta * .15
+          latitudeDelta: this.state.region.latitudeDelta * .05,
+          longitudeDelta: this.state.region.longitudeDelta * .05
         }, 3500)
 
       })
@@ -61,119 +63,69 @@ class screens extends Component {
     this.animation = new Animated.Value(0);
   }
   componentDidMount() {
-    // We should detect when scrolling has stopped then animate
-    // We should just debounce the event listener here
-    this.animation.addListener(({value}) => {
-      let index = Math.floor(value / CARD_WIDTH + 0.3); // animate 30% away from landing on the next item
-      if (index >= this.state.markers.length) {
-        index = this.state.markers.length - 1;
-      }
-      if (index <= 0) {
-        index = 0;
-      }
-      //debounce snap animation
-      clearTimeout(this.regionTimeout);
-      this.regionTimeout = setTimeout(() => {
-        if (this.index !== index) {
-          this.index = index;
-          const {coords} = this.state.markers[index];
-          this.map.animateToRegion({
-            ...coords,
-            latitudeDelta: this.state.region.latitudeDelta * .15,
-            longitudeDelta: this.state.region.longitudeDelta * .15
-          }, 350);
-        }
-      }, 10);
-    });
   }
+
+  //carousel card render item
   _renderItem({item, index}) {
-    return (<View style={styles.slide}>
-      <Text style={styles.title}>{item.title}</Text>
-    </View>);
+    return (
+      <TouchableOpacity onPress={ () => this._showModal(item)} key={item.name}>
+        <Image
+        source={{uri: item.image_url}}
+        style={styles.cardImage}
+        />
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>{item.name}</Text>
+          <Text style={styles.title}>{item.rating}/5</Text>
+        </View>
+    </TouchableOpacity>);
   }
-  _showModal = () => {
+  //Center map to pin when onSnap
+  _centerMapOnMarker (markerIndex) {
+    const markerData = this.state.markers[markerIndex];
+    this.map.animateToRegion({
+        latitude: markerData.coords.latitude,
+        longitude: markerData.coords.longitude,
+    });
+}
+//fired when card _renderItem is pressed
+  _showModal(item) {
     console.log("modal fired");
-    console.log(marker);
-    this.props.navigation.navigate('Modal', {restaurant: marker})
+    console.log("modal item Object");
+    console.log(item);
+    console.log("modal item Object");
+    this.props.navigation.navigate('Modal', {restaurantItem: item})
   }
 
   render() {
-    const interpolations = this.state.markers.map((marker, index) => {
-      const inputRange = [
-        (index - 1) * CARD_WIDTH,
-        index * CARD_WIDTH,
-        ((index + 1) * CARD_WIDTH)
-      ];
-      const scale = this.animation.interpolate({
-        inputRange,
-        outputRange: [
-          1, 2.5, 1
-        ],
-        extrapolate: "clamp"
-      });
-      const opacity = this.animation.interpolate({
-        inputRange,
-        outputRange: [
-          0.35, 1, 0.35
-        ],
-        extrapolate: "clamp"
-      });
-      return {scale, opacity};
-    });
+    console.log('render cards Carousel');
+    let baseThis = this
+    console.dir(baseThis);
+    console.log('render cards Carousel');
     if (this.state.isLoading) {
 
     } else {
-      return (<View style={styles.container}>
-        <MapView ref={map => this.map = map} initialRegion={this.state.region} style={styles.container}>
-          {
-            this.state.markers.map((marker, index) => {
-              const scaleStyle = {
-                transform: [
-                  {
-                    scale: interpolations[index].scale
-                  }
-                ]
-              };
-              const opacityStyle = {
-                opacity: interpolations[index].opacity
-              };
-              return (<MapView.Marker key={index} coordinate={marker.coords}>
-                <Animated.View style={[styles.markerWrap, opacityStyle]}>
-                  <Animated.View style={[styles.ring, scaleStyle]}/>
-                  <View style={styles.marker}/>
-                </Animated.View>
-              </MapView.Marker>);
-            })
-          }
+      return (
+      <View style={styles.container}>
+        <MapView ref={map => this.map = map} initialRegion={this.state.region} style={styles.container} mapType="mutedStandard">
+          {this.state.markers.map(marker => (
+          <Marker
+            coordinate={marker.coords}
+            key= {marker.id}
+            title={marker.name}
+            />))}
         </MapView>
-        <Animated.ScrollView horizontal="horizontal" scrollEventThrottle={1} showsHorizontalScrollIndicator={false} snapToInterval={CARD_WIDTH + 15} onScroll={Animated.event([
-            {
-              nativeEvent: {
-                contentOffset: {
-                  x: this.animation
-                }
-              }
-            }
-          ], {useNativeDriver: true})} style={styles.scrollView} contentContainerStyle={styles.endPadding}>
-          {
-            this.state.markers.map((marker, index) => (
-            <TouchableOpacity activeOpacity={.82} onPress={this._showModal}>
-            <View style={styles.card} key={index}>
-              <Image source={{
-                  uri: marker.image_url
-                }} style={styles.cardImage} resizeMode="cover"/>
-                <View style={styles.textContent}>
-                  <Text style={styles.cardtitle}>{marker.name}</Text>
-                  <Text style={styles.cardtitle}>{marker.rating}</Text>
-                </View>
-              </View>
-            </TouchableOpacity>))
-          }
-        </Animated.ScrollView>
+        <View style={styles.carousel}>
+        <Carousel
+          data={this.state.markers}
+          renderItem={this._renderItem}
+          sliderWidth={CARD_WIDTH+15}
+          itemWidth={CARD_WIDTH-5}
+          onSnapToItem={(index, marker) => this._centerMapOnMarker(index)}
+          />
+      </View>
       </View>);
-
     }
-  }
+}
 }
 
 export default withNavigation(screens);
@@ -182,45 +134,37 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  scrollView: {
+  carousel: {
     position: "absolute",
-    bottom: 30,
+    alignItems: 'center',
     left: 0,
     right: 0,
-    paddingVertical: 10
-  },
-  endPadding: {
-    paddingRight: width - CARD_WIDTH
+    bottom: 30
   },
   card: {
-    borderRadius: 4,
+    borderRadius: 10,
     elevation: 2,
     backgroundColor: "#FFF",
-    marginHorizontal: 25,
     shadowColor: "#000",
-    shadowRadius: 5,
-    shadowOpacity: 0.3,
-    shadowOffset: {
-      x: 2,
-      y: -2
-    },
     height: CARD_HEIGHT,
     width: CARD_WIDTH,
-    overflow: "hidden"
+    overflow: 'visible'
   },
   cardImage: {
-    flex: 3,
-    width: "100%",
-    height: "100%",
-    alignSelf: "center"
+    width: CARD_WIDTH* .85,
+    height: CARD_HEIGHT* .85,
+    flex: 1,
+    alignSelf: "center",
+    right: CARD_HEIGHT* .1,
+    borderRadius: 10,
   },
   textContent: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: '#312F2F'
+    backgroundColor: '#312F2F',
   },
-  cardtitle: {
+  title: {
     padding: 10,
     fontSize: 12,
     marginTop: 5,
@@ -249,5 +193,18 @@ const styles = StyleSheet.create({
     position: "absolute",
     borderWidth: 1,
     borderColor: "rgba(130,4,150, 0.5)"
+  },
+  textContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+    width: CARD_WIDTH* .80,
+    height: CARD_HEIGHT* .5,
+    elevation: 3,
+    position: 'relative',
+    right: -CARD_HEIGHT* .33,
+    top: -10,
+    backgroundColor: '#312F2F',
+    overflow: 'visible',
   }
 });
