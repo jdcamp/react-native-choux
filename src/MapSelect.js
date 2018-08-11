@@ -5,12 +5,11 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
   Animated,
   Image,
   Dimensions,
   TouchableOpacity,
-  Modal
+  Button
 } from "react-native";
 import MapView, {Marker} from "react-native-maps";
 import {withNavigation} from 'react-navigation';
@@ -36,6 +35,7 @@ class screens extends Component {
     }
     this._showModal = this._showModal.bind(this)
     this._renderItem = this._renderItem.bind(this)
+    this.getResults = this.getResults.bind(this)
     this.getResults(this.props.neighborhood)
   }
   //set markers from api
@@ -98,8 +98,6 @@ class screens extends Component {
 
   render() {
     console.log('render cards Carousel');
-    let baseThis = this
-    console.dir(baseThis);
     console.log('render cards Carousel');
     if (this.state.isLoading) {
 
@@ -114,6 +112,11 @@ class screens extends Component {
             title={marker.name}
             />))}
         </MapView>
+        <Button
+          stlye={styles.refreshButton}
+          onPress={()=> this.getResults(this.props.neighborhood)}
+          title="Learn More"
+          color="#841584"/>
         <View style={styles.carousel}>
         <Carousel
           data={this.state.markers}
@@ -165,9 +168,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#312F2F',
   },
   title: {
-    padding: 10,
-    fontSize: 12,
-    marginTop: 5,
+    padding: 5,
+    fontSize: 14,
     fontWeight: "bold",
     color: 'white'
   },
@@ -179,32 +181,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  marker: {
+  refreshButton: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: "rgba(130,4,150, 0.9)"
-  },
-  ring: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    backgroundColor: "rgba(130,4,150, 0.3)",
-    position: "absolute",
-    borderWidth: 1,
-    borderColor: "rgba(130,4,150, 0.5)"
+    color: "rgba(130,4,150, 0.9)"
   },
   textContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: 5,
     width: CARD_WIDTH* .80,
-    height: CARD_HEIGHT* .5,
     elevation: 3,
     position: 'relative',
     right: -CARD_HEIGHT* .33,
     top: -10,
     backgroundColor: '#312F2F',
     overflow: 'visible',
+    borderRadius: 10,
   }
 });

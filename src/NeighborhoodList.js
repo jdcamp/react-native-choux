@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   title: {
     color: 'white',
     flex: 2,
-    fontSize: 30,
+    fontSize: 34,
     padding: 12,
     fontFamily: 'KaushanScript-Regular',
   },
